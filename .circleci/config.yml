@@ -1,0 +1,20 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: gengjiawen/node-build
+    working_directory: ~/project
+    steps:
+      - checkout
+      - run:
+          name: Build v8 docs
+          command: |
+            git clone https://github.com/v8/v8 --depth=1
+            doxygen
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build
