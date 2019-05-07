@@ -12,6 +12,8 @@ jobs:
           command: |
             git clone https://github.com/v8/v8 --depth=1
             doxygen
+            7z a v8-docs.7z ./html
+            ll -h
 
 workflows:
   version: 2
