@@ -15,6 +15,8 @@ jobs:
             doxygen
             7z a v8-docs.7z ./html
             ls -lh
+      - store_artifacts:
+          path: ./v8-docs.7z
 
 workflows:
   version: 2
