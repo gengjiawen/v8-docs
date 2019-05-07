@@ -10,10 +10,11 @@ jobs:
       - run:
           name: Build v8 docs
           command: |
+            npx envinfo
             git clone https://github.com/v8/v8 --depth=1
             doxygen
             7z a v8-docs.7z ./html
-            ll -h
+            ls -lh
 
 workflows:
   version: 2
