@@ -1,0 +1,17 @@
+image: gengjiawen/node-build
+
+pages:
+  stage: deploy
+  script:
+    - npx envinfo
+    - git clone https://github.com/v8/v8 --depth=1
+    - doxygen
+    - 7z a v8-docs.7z ./html
+    - ls -lh
+    - mv html/ public/
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
